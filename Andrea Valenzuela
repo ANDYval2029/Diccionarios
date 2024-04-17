@@ -1,0 +1,45 @@
+# Crear un diccionario para almacenar el inventario
+inventario = {}
+
+# Función para agregar un producto al inventario
+def agregar_producto(codigo, nombre, precio, cantidad):
+    inventario[codigo] = {'nombre': nombre, 'precio': precio, 'cantidad': cantidad}
+
+# Función para eliminar un producto del inventario
+def eliminar_producto(codigo):
+    if codigo in inventario:
+        del inventario[codigo]
+        print("Producto eliminado exitosamente.")
+    else:
+        print("El producto no existe en el inventario.")
+
+# Función para actualizar la cantidad de un producto en el inventario
+def actualizar_cantidad(codigo, nueva_cantidad):
+    if codigo in inventario:
+        inventario[codigo]['cantidad'] = nueva_cantidad
+        print("Cantidad actualizada exitosamente.")
+    else:
+        print("El producto no existe en el inventario.")
+
+# Función para mostrar el inventario
+def mostrar_inventario():
+    print("Inventario:")
+    for codigo, producto in inventario.items():
+        print(f"Código: {codigo}, Nombre: {producto['nombre']}, Precio: {producto['precio']}, Cantidad: {producto['cantidad']}")
+
+# Agregar algunos productos al inventario
+agregar_producto('001', 'Camisa', 20.99, 50)
+agregar_producto('002', 'Pantalón', 35.50, 30)
+agregar_producto('003', 'Zapatos', 50.25, 20)
+
+# Mostrar el inventario antes de hacer cambios
+mostrar_inventario()
+
+# Eliminar un producto del inventario
+eliminar_producto('002')
+
+# Actualizar la cantidad de un producto en el inventario
+actualizar_cantidad('001', 60)
+
+# Mostrar el inventario después de hacer cambios
+mostrar_inventario()
