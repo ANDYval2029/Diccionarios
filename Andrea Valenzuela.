@@ -1,0 +1,29 @@
+def crear_inventario():
+    inventario = {}
+    while True:
+        nombre = input("Ingrese el nombre del estudiante (o 'fin' para terminar): ")
+        if nombre.lower() == 'fin':
+            break
+        calificacion = float(input("Ingrese la calificación del estudiante: "))
+        inventario[nombre] = calificacion
+    return inventario
+
+def ordenar_inventario(inventario):
+    nombres_ordenados = sorted(inventario.keys())
+    calificaciones_ordenadas = sorted(inventario.values(), reverse=True)
+    return nombres_ordenados, calificaciones_ordenadas
+
+def mostrar_inventario(nombres, calificaciones):
+    print("Nombre\t\tCalificación")
+    print("---------------------------")
+    for nombre, calificacion in zip(nombres, calificaciones):
+        print(f"{nombre}\t\t{calificacion}")
+
+# Crear el inventario
+inventario = crear_inventario()
+
+# Ordenar el inventario
+nombres_ordenados, calificaciones_ordenadas = ordenar_inventario(inventario)
+
+# Mostrar el inventario ordenado
+mostrar_inventario(nombres_ordenados, calificaciones_ordenadas)
